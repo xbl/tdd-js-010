@@ -5,11 +5,8 @@ export default {
       return true;
     }
 
-    if (str === '()') {
-      return true;
-    }
-
-    if (str === '()()') {
+    const replacedResult = str.replace(/\(\)/gi, '');
+    if (replacedResult === '') {
       return true;
     }
 
