@@ -6,13 +6,13 @@ export default {
     }
 
     const pipe = [];
-    for (let chart of str) {
-      if (chart === '(') {
-        pipe.push(chart);
+    for (let char of str) {
+      if (char === '(') {
+        pipe.push(char);
       }
 
-      if (chart === ')') {
-        pipe.pop();
+      if (char === ')' && pipe.pop() !== '(') {
+        return false;
       }
     }
 
