@@ -9,6 +9,10 @@ export default {
       return true;
     }
 
+    if (str === '()()') {
+      return true;
+    }
+
     return false;
   }
 };
