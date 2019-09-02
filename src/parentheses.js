@@ -4,5 +4,11 @@ export default {
     if (str === '') {
       return true;
     }
+
+    if (str === '()') {
+      return true;
+    }
+
+    return false;
   }
 };
