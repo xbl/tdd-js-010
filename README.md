@@ -1,4 +1,4 @@
-# tdd-js-template
+# tdd-js-101
 
 
 ## 项目安装
