@@ -6,6 +6,7 @@ export default {
 
     let replacedResult = str.replace(/\(\)/gi, '');
     replacedResult = replacedResult.replace(/\[\]/gi, '');
+    replacedResult = replacedResult.replace(/\{\}/gi, '');
     if (replacedResult === '') {
       return true;
     }
