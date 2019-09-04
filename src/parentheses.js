@@ -1,4 +1,9 @@
 
+const PARENTHESES = {
+  OPEN: '(',
+  CLOSE: ')'
+};
+
 export default {
   execute(str) {
     if (str === '') {
@@ -7,11 +12,12 @@ export default {
 
     const pipe = [];
     for (let char of str) {
-      if (char === '(') {
+      if (char === PARENTHESES.OPEN) {
         pipe.push(char);
       }
 
-      if (char === ')' && pipe.pop() !== '(') {
+      if (char === PARENTHESES.CLOSE
+          && pipe.pop() !== PARENTHESES.OPEN) {
         return false;
       }
     }
