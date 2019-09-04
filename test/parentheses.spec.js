@@ -49,4 +49,17 @@ describe('Parentheses', function() {
   it('如果 输入字符串为 ({)} ，当调用 Parentheses.execute()，则结果返回 false', () => {
     assert.equal(Parentheses.execute('({)}'), false);
   });
+
+  const inputStr = `
+    const fn = () => {
+      const arr = [1, 2, 3];
+      if (arr.length) {
+        alert('success!');
+      }
+    };
+  `;
+
+  it(`如果 输入字符串为 ${inputStr} ，当调用 Parentheses.execute()，则结果返回 false`, () => {
+    assert.equal(Parentheses.execute(inputStr), true);
+  });
 });
