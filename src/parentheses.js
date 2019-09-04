@@ -9,6 +9,27 @@ const BRACKETS = {
   CLOSE: ']'
 };
 
+const holderMap = {
+  '(': PARENTHESES,
+  ')': PARENTHESES,
+  '[': BRACKETS,
+  ']': BRACKETS,
+};
+
+const compare = (char, pipe) => {
+  const holder = holderMap[char];
+  if (char === holder.OPEN) {
+    pipe.push(char);
+  }
+
+  if (char === holder.CLOSE
+      && pipe.pop() !== holder.OPEN) {
+    return false;
+  }
+
+  return true;
+};
+
 export default {
   execute(str) {
     if (str === '') {
@@ -17,21 +38,7 @@ export default {
 
     const pipe = [];
     for (let char of str) {
-      if (char === PARENTHESES.OPEN) {
-        pipe.push(char);
-      }
-
-      if (char === PARENTHESES.CLOSE
-          && pipe.pop() !== PARENTHESES.OPEN) {
-        return false;
-      }
-
-      if (char === BRACKETS.OPEN) {
-        pipe.push(char);
-      }
-
-      if (char === BRACKETS.CLOSE
-          && pipe.pop() !== BRACKETS.OPEN) {
+      if (!compare(char, pipe)) {
         return false;
       }
     }
