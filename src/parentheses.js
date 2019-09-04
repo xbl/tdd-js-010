@@ -4,6 +4,11 @@ const PARENTHESES = {
   CLOSE: ')'
 };
 
+const BRACKETS = {
+  OPEN: '[',
+  CLOSE: ']'
+};
+
 export default {
   execute(str) {
     if (str === '') {
@@ -18,6 +23,15 @@ export default {
 
       if (char === PARENTHESES.CLOSE
           && pipe.pop() !== PARENTHESES.OPEN) {
+        return false;
+      }
+
+      if (char === BRACKETS.OPEN) {
+        pipe.push(char);
+      }
+
+      if (char === BRACKETS.CLOSE
+          && pipe.pop() !== BRACKETS.OPEN) {
         return false;
       }
     }
