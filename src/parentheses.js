@@ -9,15 +9,23 @@ const BRACKETS = {
   CLOSE: ']'
 };
 
+const BRACES = {
+  OPEN: '{',
+  CLOSE: '}'
+};
+
 const holderMap = {
   '(': PARENTHESES,
   ')': PARENTHESES,
   '[': BRACKETS,
   ']': BRACKETS,
+  '{': BRACES,
+  '}': BRACES
 };
 
 const compare = (char, pipe) => {
   const holder = holderMap[char];
+  if (!holder) return true;
   if (char === holder.OPEN) {
     pipe.push(char);
   }
